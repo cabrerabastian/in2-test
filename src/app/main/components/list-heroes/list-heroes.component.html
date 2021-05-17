@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="">
+    <button type="button" mat-raised-button color="primary" (click)="createHeroe()">
+      <span>Crear Heroe</span>
+    </button>
+    <mat-form-field class="w-100">
+      <mat-label>Búsqueda</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
+    </mat-form-field>
+  </div>
+  <div class="table">
+    <table mat-table [dataSource]="dataSource" mat-elevation-z8>
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let heroe">{{ heroe.id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="superhero">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let heroe">{{ heroe.superhero }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="alter_ego">
+        <th mat-header-cell *matHeaderCellDef>Alter Ego</th>
+        <td mat-cell *matCellDef="let heroe">{{ heroe.alter_ego }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_appearance">
+        <th mat-header-cell *matHeaderCellDef>Primera Aparición</th>
+        <td mat-cell *matCellDef="let heroe">{{ heroe.first_appearance }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef class="fix-delete">
+          Editar
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="editHeroe(row)"
+          >
+            <span>Editar</span>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef class="fix-delete">
+          Eliminar
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button
+            type="button"
+            mat-raised-button
+            color="warn"
+            (click)="openDialog($event, row)"
+          >
+            <span>Eliminar</span>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No se han encontrado resultados, por favor cambia los filtros de
+          busqueda
+        </td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 50, 100]"></mat-paginator>
+  </div>
+</div>

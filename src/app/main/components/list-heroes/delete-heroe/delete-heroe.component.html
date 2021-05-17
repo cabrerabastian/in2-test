@@ -1,0 +1,38 @@
+<div class="header">
+  <div class="title">Eliminar Inspección</div>
+  <button
+    class="close-button"
+    mat-icon-button
+    (click)="close()"
+    [tabIndex]="-1"
+  >
+    <mat-icon aria-hidden="false" aria-label="close icon">close</mat-icon>
+  </button>
+</div>
+
+<form>
+  <p>
+    ¿Esta seguro que quiere eliminar al heroe
+    <strong>{{ heroe.superhero }}</strong
+    >?
+  </p>
+  <div class="actions">
+    <div class="buttons">
+      <!-- Send -->
+      <button
+        type="button"
+        mat-flat-button
+        [color]="'warn'"
+        [disabled]="loading"
+        (click)="deleteHeroe(heroe)"
+      >
+        <mat-progress-spinner
+          *ngIf="loading"
+          [diameter]="24"
+          [mode]="'indeterminate'"
+        ></mat-progress-spinner>
+        <span>Eliminar</span>
+      </button>
+    </div>
+  </div>
+</form>

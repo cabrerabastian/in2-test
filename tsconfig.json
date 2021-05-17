@@ -1,0 +1,40 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@services/*": ["./src/app/main/services/*"],
+      "@models/*": ["./src/app/main/models/*"],
+      "@components/*": ["./src/app/main/components/*"],
+      "@layout/*": ["./src/app/main/layout/*"],
+      "@guards/*": ["./src/app/main/guards/*"],
+      "@pipes/*": ["./src/app/main/pipes/*"],
+    /*   "@enviroments/*": ["./src/app/main/pipes/*"], */
+      "@data/*": ["./src/app/main/data/*"]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

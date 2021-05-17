@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <h2>Crear Heroe</h2>
+  </div>
+
+  <form [formGroup]="heroeForm">
+    <mat-form-field class="w-100">
+      <mat-label>Nombre</mat-label>
+      <input formControlName="superhero" matInput placeholder="Nombre del heroe" />
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Alter Ego</mat-label>
+      <input formControlName="alter_ego" matInput placeholder="Alter Ego" />
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Primera Aparición</mat-label>
+      <input
+        formControlName="first_appearance"
+        matInput
+        placeholder="Primera Aparición"
+      />
+    </mat-form-field>
+
+    <button
+      *ngIf="!heroe"
+      type="button"
+      mat-flat-button
+      [color]="'primary'"
+      [disabled]="loading"
+      (click)="createHeroe()"
+    >
+      <mat-progress-spinner
+        *ngIf="loading"
+        [diameter]="24"
+        [mode]="'indeterminate'"
+      ></mat-progress-spinner>
+      <span>Crear Heroe</span>
+    </button>
+
+    <button
+      *ngIf="heroe"
+      type="button"
+      mat-flat-button
+      [color]="'primary'"
+      [disabled]="loading"
+      (click)="editHeroe()"
+    >
+      <mat-progress-spinner
+        *ngIf="loading"
+        [diameter]="24"
+        [mode]="'indeterminate'"
+      ></mat-progress-spinner>
+      <span>Editar Heroe</span>
+    </button>
+  </form>
+</div>
