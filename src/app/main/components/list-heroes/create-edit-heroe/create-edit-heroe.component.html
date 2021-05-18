@@ -3,14 +3,6 @@
     <h2 class="title" *ngIf="heroe">Editar Heroe</h2>
     <h2 class="title" *ngIf="!heroe">Crear Heroe</h2>
 
-    <button
-      class="close-button"
-      mat-icon-button
-      (click)="close()"
-      [tabIndex]="-1"
-    >
-      <mat-icon aria-hidden="false" aria-label="close icon">close</mat-icon>
-    </button>
   </div>
 
   <form [formGroup]="heroeForm">
