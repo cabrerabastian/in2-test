@@ -1,12 +1,27 @@
 <div class="container">
   <div class="header">
-    <h2>Crear Heroe</h2>
+    <h2 class="title" *ngIf="heroe">Editar Heroe</h2>
+    <h2 class="title" *ngIf="!heroe">Crear Heroe</h2>
+
+    <button
+      class="close-button"
+      mat-icon-button
+      (click)="close()"
+      [tabIndex]="-1"
+    >
+      <mat-icon aria-hidden="false" aria-label="close icon">close</mat-icon>
+    </button>
   </div>
 
   <form [formGroup]="heroeForm">
     <mat-form-field class="w-100">
       <mat-label>Nombre</mat-label>
-      <input formControlName="superhero" matInput placeholder="Nombre del heroe" />
+      <input
+        formControlName="superhero"
+        matInput
+        placeholder="Nombre del heroe"
+        appUppercase
+      />
     </mat-form-field>
 
     <mat-form-field class="w-100">
@@ -28,8 +43,9 @@
       type="button"
       mat-flat-button
       [color]="'primary'"
-      [disabled]="loading"
+      [disabled]="loading || heroeForm.invalid"
       (click)="createHeroe()"
+      class="m-r-10"
     >
       <mat-progress-spinner
         *ngIf="loading"
@@ -44,8 +60,9 @@
       type="button"
       mat-flat-button
       [color]="'primary'"
-      [disabled]="loading"
+      [disabled]="loading || heroeForm.invalid"
       (click)="editHeroe()"
+      class="m-r-10"
     >
       <mat-progress-spinner
         *ngIf="loading"
@@ -53,6 +70,18 @@
         [mode]="'indeterminate'"
       ></mat-progress-spinner>
       <span>Editar Heroe</span>
+    </button>
+
+    <button
+    
+      type="button"
+      mat-flat-button
+      [color]="'primary'"
+      (click)="close()"
+     
+    >
+   
+      <span>Cerrar</span>
     </button>
   </form>
 </div>

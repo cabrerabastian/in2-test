@@ -13,15 +13,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateEditHeroeComponent } from './create-edit-heroe/create-edit-heroe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DirectivesModule } from '../../directives/directives.module';
 
 const routes: Routes = [
   {
     path: '',
     component: ListHeroesComponent
-  },
-  {
-    path: 'create',
-    component: CreateEditHeroeComponent
   },
 ];
 
@@ -44,7 +41,8 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DirectivesModule
   ]
 })
 export class ListHeroesModule { }
